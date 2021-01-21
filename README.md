@@ -1,4 +1,4 @@
 # Aulas-Python
  Aulas e exercicios de Python
 
-Visite [Meu Perfil](github.com/JefferMarcelino)
+Visite [Meu Perfil](https://github.com/JefferMarcelino)
