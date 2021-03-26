@@ -1,4 +1,4 @@
-from ex155.lib.interface import *
+from lib.interface import *
 
 
 def arquivoExiste(nome):
