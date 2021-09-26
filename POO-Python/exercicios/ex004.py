@@ -1,5 +1,5 @@
 class Televisão:
-    def __init__(self, min, max):
+    def __init__(self, min = 2, max = 14):
         self.ligada = False
         self.canal = 2
         self.cmin = min
@@ -12,7 +12,7 @@ class Televisão:
         self.canal = self.cmax
 
 
-tv = Televisão(2, 10)
+tv = Televisão()
 tv.muda_canal_para_cima()
 print(tv.canal)
 tv.muda_canal_para_baixo()
