@@ -12,8 +12,5 @@ class Televisão:
         self.canal = self.cmax
 
 
-tv = Televisão()
-tv.muda_canal_para_cima()
-print(tv.canal)
-tv.muda_canal_para_baixo()
-print(tv.canal)
+tv1 = Televisão(10, 50)
+tv2 = Televisão(11, 29)
