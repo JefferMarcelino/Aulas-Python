@@ -26,35 +26,69 @@ class LinkedList:
             i += 1
         raise ValueError(f"{element} is not in the list.")
 
-    def __len__(self):
-        return self._size
+    def insert(self, index, element):
+        node = Node(element)
+        if index == 0:
+            node.next = self.head
+            self.head = node
+        else:
+            current = self._getNode(index - 1)
+            node.next = current.next
+            current.next = node
+        self._size += 1
 
-    def __getitem__(self, index):
+    def remove(self, element):
+        if self.head == None:
+            raise ValueError("{element} is not in the list.")
+        elif self.head.data == element:
+            self.head = self.head.next
+            return True
+        else:
+            ancestor = self.head
+            current = self.head.next
+            while(current):
+                if current.data == element:
+                    ancestor.next = current.next
+                    current.next = None
+                    return True
+                    self._size -= 1
+                ancestor = current
+                current = current.next
+        
+        raise ValueError(f"{element} is not in the list.")
+
+    def _getNode(self, index):
         current = self.head
         for x in range(index):
             if current:
                 current = current.next
             else:
                 raise IndexError("list index out of range")
+        return current
+
+    def __len__(self):
+        return self._size
+
+    def __getitem__(self, index):
+        current = self._getNode(index)
         if current:
             return current.data
         raise IndexError("list index out of range")
         
     def __setitem__(self, index, element):
-        current = self.head
-        for x in range(index):
-            if current:
-                current = current.next
-            else:
-                raise IndexError("list index out of range")
+        current = self._getNode(index)
         if current:
             current.data = element
         else:
             raise IndexError("list index out of range")
 
-myList = LinkedList()
-myList.push(10)
-myList.push(20)
-myList.push(30)
+    def __repr__(self):
+        r = ""
+        current = self.head
+        while(current):
+            r = r + str(current.data) + " -> "
+            current = current.next
+        return r[0:-3]
 
-print(myList.index(10))
+    def __str__(self):
+        return self.__repr__()
