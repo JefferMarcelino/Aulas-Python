@@ -57,6 +57,16 @@ class LinkedList:
         
         raise ValueError(f"{element} is not in the list.")
 
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+            
     def _getNode(self, index):
         current = self.head
         for x in range(index):
@@ -92,3 +102,13 @@ class LinkedList:
 
     def __str__(self):
         return self.__repr__()
+
+
+myList = LinkedList()
+
+for x in range(1, 80):
+    myList.push(x)
+
+print(myList)
+myList.reverse()
+print(myList)
