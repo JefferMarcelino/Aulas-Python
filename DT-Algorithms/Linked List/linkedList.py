@@ -66,6 +66,16 @@ class LinkedList:
             prev = current
             current = next
         self.head = prev
+
+    def recursionReverse(self, current):
+        #current = self.head
+        if current.next == None:
+            self.head = current
+            return True
+        self.recursionReverse(current.next)
+        next = current.next
+        next.next = current
+        current.next = None
             
     def _getNode(self, index):
         current = self.head
@@ -106,9 +116,9 @@ class LinkedList:
 
 myList = LinkedList()
 
-for x in range(1, 80):
+for x in range(1, 10):
     myList.push(x)
 
 print(myList)
-myList.reverse()
+myList.recursionReverse(myList.head)
 print(myList)
