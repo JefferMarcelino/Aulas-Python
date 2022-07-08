@@ -50,8 +50,8 @@ class LinkedList:
                 if current.data == element:
                     ancestor.next = current.next
                     current.next = None
-                    return True
                     self._size -= 1
+                    return True
                 ancestor = current
                 current = current.next
         
