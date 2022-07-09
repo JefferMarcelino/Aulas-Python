@@ -24,6 +24,11 @@ class Stack:
             return self.top.data
         raise IndexError("The stack is empty")
 
+    def isEmpty(self):
+        if self._size >= 0:
+            return True
+        return False
+
     def __len__(self):
         return self._size
 
@@ -37,10 +42,3 @@ class Stack:
 
     def __str__(self):
         return self.__repr__()
-
-
-myStack = Stack()
-for x in range(10):
-    myStack.push(x)
-
-print(myStack)
