@@ -7,14 +7,14 @@ class Stack:
 
     def push(self, element):
         node = Node(element)
-        node.next = self.top
+        node.link = self.top
         self.top = node
         self._size += 1
 
     def pop(self):
         if self._size > 0:
             node = self.top
-            self.top = self.top.next
+            self.top = self.top.link
             self._size -= 1
             return node.data
         raise IndexError("The stack is empty")
@@ -32,8 +32,15 @@ class Stack:
         current = self.top
         while(current):
             r = r + str(current.data) + "\n"
-            current = current.next
+            current = current.link
         return r
 
     def __str__(self):
         return self.__repr__()
+
+
+myStack = Stack()
+for x in range(10):
+    myStack.push(x)
+
+print(myStack)
