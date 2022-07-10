@@ -25,7 +25,7 @@ class Stack:
         raise IndexError("The stack is empty")
 
     def isEmpty(self):
-        if self._size >= 0:
+        if self._size <= 0:
             return True
         return False
 
