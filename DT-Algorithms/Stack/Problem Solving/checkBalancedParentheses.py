@@ -4,7 +4,6 @@ def checkBalancedParentheses(expression):
     opens = ["(", "[", "{"]
     closes = [")", "]", "}"]
     myStack = Stack()
-    print(myStack)
     for symbol in expression:
         if symbol in "({[":
             myStack.push(symbol)
@@ -16,5 +15,5 @@ def checkBalancedParentheses(expression):
                 myStack.pop()
     return myStack.isEmpty()
 
-print(checkBalancedParentheses("a(a*b)+b(a+2)"))
-print(checkBalancedParentheses("a(a*b)+b(a+2))))"))
+expression = str(input("Write an expression with parentheses for validation: "))
+print(checkBalancedParentheses(expression))
